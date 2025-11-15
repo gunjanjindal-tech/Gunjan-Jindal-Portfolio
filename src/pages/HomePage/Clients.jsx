@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import wizardLogo from "../../assets/wizardLogo.png";
 import vinayakLogo from "../../assets/vinayakLogo.png";
-import puramenteLogo from "../../assets/puramenteLogo.png";
+import puramenteLogo from "../../assets/PuramenteLogo.png";
 
 export default function Clients() {
   const clients = [
