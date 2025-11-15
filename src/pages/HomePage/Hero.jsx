@@ -91,7 +91,7 @@ export default function Hero() {
           </motion.h1>
         </div>
 
-        {/* Extra Info (New Line Added Here) */}
+        {/* Extra Info */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,22 +119,80 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-10"
+          className="
+            flex flex-col 
+            sm:flex-row 
+            flex-wrap
+            justify-center 
+            items-center 
+            gap-4 
+            sm:gap-6 
+            mt-10 
+            w-full 
+            px-4
+          "
         >
+          {/* GitHub */}
           <a
-            href="https://www.wscubetech.com/portfolio/web-development/gunjan-b1hma2l"
+            href="https://github.com/gunjanjindal-tech"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 bg-white text-[#0B001F] font-semibold rounded-full text-sm hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:scale-105 transition-all"
+            className="
+              px-6 py-3 
+              w-full sm:w-auto 
+              text-center 
+              bg-white 
+              text-[#0B001F] 
+              font-semibold 
+              rounded-full 
+              text-sm 
+              hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] 
+              hover:scale-105 
+              transition-all
+            "
           >
             View My Work
           </a>
 
+          {/* Contact */}
           <a
             href="mailto:jindalgunjan14@gmail.com"
-            className="px-6 py-3 border border-white/40 text-white/90 rounded-full text-sm font-medium hover:border-white hover:text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all"
+            className="
+              px-6 py-3 
+              w-full sm:w-auto
+              text-center 
+              border border-white/40 
+              text-white/90 
+              rounded-full 
+              text-sm 
+              font-medium 
+              hover:border-white 
+              hover:text-white 
+              hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] 
+              transition-all
+            "
           >
             Contact Me
+          </a>
+
+          {/* CV Download */}
+          <a
+            href="/Gunjan-Jindal-Resume.pdf"
+            download="Gunjan-Jindal-Resume.pdf"
+            className="
+              px-6 py-3 
+              w-full sm:w-auto
+              text-center 
+              bg-purple-600 
+              text-white 
+              font-semibold 
+              rounded-full 
+              text-sm 
+              hover:scale-105 
+              transition-all
+            "
+          >
+            Download CV
           </a>
         </motion.div>
 
@@ -151,6 +209,7 @@ export default function Hero() {
               jindalgunjan14@gmail.com
             </a>
           </div>
+
           <div className="flex items-center gap-2">
             <Phone className="w-5 h-5 text-neutral-100" />
             <a href="tel:+918949951116" className="hover:text-white">

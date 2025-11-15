@@ -1,6 +1,6 @@
 // src/pages/MyWork.jsx
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // =======================
@@ -21,7 +21,7 @@ import wiz3 from "../../assets/wizard/wiz3.png";
 import wiz4 from "../../assets/wizard/wiz4.png";
 import wiz5 from "../../assets/wizard/wiz5.png";
 
-// Puramente International
+// Puramente
 import pura1 from "../../assets/puramente/pura1.png";
 import pura2 from "../../assets/puramente/pura2.png";
 import pura3 from "../../assets/puramente/pura3.png";
@@ -95,7 +95,7 @@ const projects = [
   {
     title: "Swoo Petmall",
     category: "Frontend",
-    description: "Premium pet shop UI design built using Bootstrap and HTML/CSS.",
+    description: "Premium pet shop UI built using Bootstrap and HTML/CSS.",
     tech: ["HTML", "CSS", "Bootstrap"],
     link: "https://gunjanjindal-tech.github.io/Swoo-Petmall/",
     images: [swoo1, swoo2, swoo3],
@@ -159,30 +159,33 @@ export default function MyWork() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="work"  className="py-28 bg-gradient-to-b from-[#0a0018] via-[#13002c] to-[#0a0018] text-white">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+    <section
+      id="work"
+      className="py-20 sm:py-28 bg-gradient-to-b from-[#0a0018] via-[#13002c] to-[#0a0018] text-white"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl sm:text-5xl font-light mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-light mb-4"
         >
           My <span className="font-semibold text-purple-400">Work</span>
         </motion.h2>
 
         {/* Subtext */}
-        <p className="text-neutral-300 mb-10">
-          A showcase of my favourite projects crafted with creativity & clean
-          code.
+        <p className="text-neutral-300 mb-10 text-sm sm:text-base md:text-lg px-2">
+          A showcase of my favourite projects crafted with creativity & clean code.
         </p>
 
         {/* FILTER BUTTONS */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 px-2">
           {categories.map((cat, i) => (
             <button
               key={i}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm border ${
+              className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm border ${
                 activeCategory === cat
                   ? "bg-purple-500 text-white border-purple-500"
                   : "bg-transparent border-purple-300/40 text-purple-300"
@@ -194,21 +197,21 @@ export default function MyWork() {
         </div>
 
         {/* PROJECT GRID */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 px-2">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              className="cursor-pointer bg-white/5 backdrop-blur-lg p-4 rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all"
+              className="cursor-pointer bg-white/5 backdrop-blur-lg p-4 sm:p-5 rounded-2xl border border-white/10 hover:border-purple-400/40 transition-all"
               onClick={() => setModalData(project)}
             >
               <img
                 src={project.images[0]}
-                className="h-56 w-full object-cover rounded-xl mb-4"
+                className="h-48 sm:h-56 w-full object-cover rounded-xl mb-3 sm:mb-4"
               />
 
-              <h3 className="text-xl font-bold">{project.title}</h3>
-              <p className="text-neutral-400 text-sm mt-2">
+              <h3 className="text-lg sm:text-xl font-bold">{project.title}</h3>
+              <p className="text-neutral-400 text-xs sm:text-sm mt-2">
                 {project.description}
               </p>
 
@@ -216,7 +219,7 @@ export default function MyWork() {
                 {project.tech.map((t, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 text-xs bg-purple-500/20 border border-purple-400/40 text-purple-300 rounded-full"
+                    className="px-3 py-1 text-[10px] sm:text-xs bg-purple-500/20 border border-purple-400/40 text-purple-300 rounded-full"
                   >
                     {t}
                   </span>
@@ -233,24 +236,34 @@ export default function MyWork() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-xl flex items-center justify-center p-4 z-[999]"
+              className="
+                fixed inset-0 bg-black/70 backdrop-blur-xl
+                flex items-center justify-center p-4 z-[999]
+              "
               onClick={() => setModalData(null)}
             >
               <motion.div
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
-                className="bg-[#0a0018] p-6 rounded-2xl max-w-3xl w-full border border-purple-400/40"
+                className="
+                  bg-[#0a0018] p-4 sm:p-6 rounded-2xl 
+                  max-w-lg sm:max-w-3xl w-full 
+                  border border-purple-400/40 
+                  max-h-[85vh] overflow-y-auto
+                "
                 onClick={(e) => e.stopPropagation()}
               >
-                <h2 className="text-2xl font-bold mb-4">{modalData.title}</h2>
+                <h2 className="text-xl sm:text-2xl font-bold mb-4">
+                  {modalData.title}
+                </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   {modalData.images.map((img, i) => (
                     <img
                       key={i}
                       src={img}
-                      className="w-full h-48 object-cover rounded-lg border border-white/10"
+                      className="w-full h-40 sm:h-48 object-cover rounded-lg border border-white/10"
                     />
                   ))}
                 </div>
@@ -258,7 +271,11 @@ export default function MyWork() {
                 <a
                   href={modalData.link}
                   target="_blank"
-                  className="px-5 py-2 bg-purple-500 text-white rounded-full mt-4 inline-block"
+                  className="
+                    px-5 py-2 bg-purple-500 
+                    text-white rounded-full mt-3 
+                    inline-block text-sm sm:text-base
+                  "
                 >
                   Visit Website
                 </a>
@@ -266,6 +283,7 @@ export default function MyWork() {
             </motion.div>
           )}
         </AnimatePresence>
+
       </div>
     </section>
   );

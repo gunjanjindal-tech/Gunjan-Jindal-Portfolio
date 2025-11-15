@@ -35,7 +35,7 @@ export default function Clients() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % clients.length);
-    }, 3000); // every 3s
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,39 +46,39 @@ export default function Clients() {
   ];
 
   return (
-    <section className="relative py-28 bg-gradient-to-b from-[#090014] via-[#15002c] to-[#0a0018] text-white overflow-hidden">
-      {/* Soft background glow */}
-      <div className="absolute inset-0 flex justify-center items-center">
-        <div className="w-[900px] h-[900px] bg-purple-700/20 blur-[200px] rounded-full -z-10"></div>
+    <section className="relative py-20 sm:py-24 md:py-28 bg-gradient-to-b from-[#090014] via-[#15002c] to-[#0a0018] text-white overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <div className="w-[500px] sm:w-[700px] md:w-[900px] h-[500px] sm:h-[700px] md:h-[900px] bg-purple-700/20 blur-[200px] rounded-full -z-10"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.25)]"
+          className="text-2xl sm:text-4xl md:text-5xl font-light mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.25)]"
         >
           <span className="text-white">Honoured to work with </span>
           <span className="font-semibold text-purple-400">visionary brands</span>
         </motion.h2>
 
         {/* Subtitle */}
-        <p className="text-neutral-300 text-base sm:text-lg mb-16 max-w-2xl mx-auto">
+        <p className="text-neutral-300 text-sm sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto px-2">
           Collaborating with brands that value creativity, innovation, and precision in every digital detail.
         </p>
 
-        {/* Motion carousel */}
-        <div className="overflow-hidden w-full flex justify-center">
+        {/* Responsive Carousel Wrapper */}
+        <div className="w-full flex justify-center overflow-x-auto sm:overflow-hidden no-scrollbar">
           <motion.div
             key={index}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="flex gap-10 justify-center items-center"
+            className="flex gap-6 sm:gap-10 md:gap-12 justify-center items-center px-2 sm:px-0"
           >
             {visibleClients.map((client, i) => (
               <motion.a
@@ -88,10 +88,25 @@ export default function Clients() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className={`group w-72 h-72 p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-br ${client.accent} border border-white/20 shadow-[0_0_40px_rgba(168,85,247,0.25)] hover:shadow-[0_0_60px_rgba(168,85,247,0.45)] transition-all duration-700 overflow-hidden flex flex-col justify-center items-center`}
+                className={`
+                  group 
+                  w-56 h-56 
+                  sm:w-64 sm:h-64 
+                  md:w-72 md:h-72 
+                  p-5 sm:p-6 md:p-8
+                  rounded-2xl md:rounded-3xl 
+                  backdrop-blur-xl 
+                  bg-gradient-to-br ${client.accent} 
+                  border border-white/20 
+                  shadow-[0_0_30px_rgba(168,85,247,0.25)] 
+                  hover:shadow-[0_0_60px_rgba(168,85,247,0.45)] 
+                  transition-all duration-700 
+                  overflow-hidden 
+                  flex flex-col justify-center items-center relative
+                `}
               >
-                {/* Subtle inner light */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-44 h-44 bg-white/40 blur-3xl rounded-full opacity-70"></div>
+                {/* Inner Light */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-28 sm:w-36 md:w-44 h-28 sm:h-36 md:h-44 bg-white/40 blur-3xl rounded-full opacity-70"></div>
 
                 {/* Logo */}
                 <motion.img
@@ -99,15 +114,15 @@ export default function Clients() {
                   alt={client.name}
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-52 h-32 object-contain mb-4 drop-shadow-[0_0_25px_rgba(255,255,255,0.9)] brightness-[1.5] contrast-[1.4] saturate-[1.2] mix-blend-normal z-10"
+                  className="w-32 h-20 sm:w-40 sm:h-24 md:w-52 md:h-32 object-contain mb-3 sm:mb-4 drop-shadow-[0_0_25px_rgba(255,255,255,0.9)] brightness-[1.5] contrast-[1.4] saturate-[1.2] z-10"
                 />
 
-                {/* Name / Description */}
-                <div className="text-center z-10 mt-2">
-                  <h3 className="text-lg font-semibold text-white mb-1">
+                {/* Text */}
+                <div className="text-center z-10">
+                  <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white">
                     {client.name}
                   </h3>
-                  <p className="text-sm text-neutral-700 font-medium">
+                  <p className="text-xs sm:text-sm text-neutral-700 font-medium">
                     {client.desc}
                   </p>
                 </div>
