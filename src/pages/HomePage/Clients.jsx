@@ -80,7 +80,15 @@ export default function Clients() {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="flex gap-6 sm:gap-10 md:gap-12 justify-center items-center px-2 sm:px-0"
+            className="
+  flex 
+  flex-col sm:flex-row   /* vertical on mobile, horizontal on sm+ */
+  gap-6 sm:gap-10 md:gap-12 
+  justify-center 
+  items-center 
+  px-2 sm:px-0
+"
+
           >
             {visibleClients.map((client, i) => (
               <motion.a
