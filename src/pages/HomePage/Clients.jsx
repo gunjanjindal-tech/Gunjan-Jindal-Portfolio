@@ -46,7 +46,9 @@ export default function Clients() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 md:py-28 bg-gradient-to-b from-[#090014] via-[#15002c] to-[#0a0018] text-white overflow-hidden">
+    <section
+      id="clients"
+      className="relative py-20 sm:py-24 md:py-28 bg-gradient-to-b from-[#090014] via-[#15002c] to-[#0a0018] text-white overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
         <div className="w-[500px] sm:w-[700px] md:w-[900px] h-[500px] sm:h-[700px] md:h-[900px] bg-purple-700/20 blur-[200px] rounded-full -z-10"></div>

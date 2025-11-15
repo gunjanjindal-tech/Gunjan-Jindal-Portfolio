@@ -46,7 +46,7 @@ export default function Contact() {
       id="contact"
       className="min-h-screen bg-gradient-to-b from-[#0a0018] via-[#13002c] to-[#0a0018] text-white py-20 px-4 sm:px-6 flex justify-center"
     >
-      <div className="max-w-3xl w-full">
+      <div className="max-w-4xl w-full">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

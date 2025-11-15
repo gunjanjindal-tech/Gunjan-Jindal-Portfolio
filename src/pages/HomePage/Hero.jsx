@@ -39,7 +39,7 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-[95%] sm:max-w-2xl md:max-w-3xl lg:max-w-6xl"
+        className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-[95%] sm:max-w-2xl md:max-w-3xl lg:max-w-7xl"
       >
         {/* Subtitle */}
         <motion.h2
@@ -220,13 +220,19 @@ export default function Hero() {
       </motion.div>
 
       {/* Scroll Arrow */}
-      <motion.div
-        animate={{ y: [0, 10, 0], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 text-neutral-100"
-      >
-        <ArrowDown className="w-6 h-6" />
-      </motion.div>
+     <motion.div
+  onClick={() => {
+    document
+      .querySelector("#clients")
+      .scrollIntoView({ behavior: "smooth" });
+  }}
+  animate={{ y: [0, 10, 0], opacity: [0.6, 1, 0.6] }}
+  transition={{ duration: 2, repeat: Infinity }}
+  className="absolute bottom-10 text-neutral-100 cursor-pointer"
+>
+  <ArrowDown className="w-6 h-6" />
+</motion.div>
+
     </section>
   );
 }

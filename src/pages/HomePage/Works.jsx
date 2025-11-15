@@ -161,7 +161,7 @@ export default function MyWork() {
   return (
     <section
       id="work"
-      className="py-20 sm:py-28 bg-gradient-to-b from-[#0a0018] via-[#13002c] to-[#0a0018] text-white"
+      className="py-5 sm:py-28 bg-gradient-to-b from-[#0a0018] via-[#13002c] to-[#0a0018] text-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         

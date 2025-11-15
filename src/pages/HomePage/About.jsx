@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 sm:py-28 bg-gradient-to-b from-[#0a0018] via-[#13002c] to-[#0a0018] text-white"
+      className="py-5 sm:py-5 bg-gradient-to-b from-[#0a0018] via-[#13002c] to-[#0a0018] text-white"
     >
       <div className="w-full px-4 sm:px-8 lg:px-20 flex flex-col gap-16 sm:gap-20">
 
@@ -19,7 +19,7 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="w-full flex justify-center px-2"
         >
-          <div className="max-w-4xl text-center">
+          <div className="max-w-7xl text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-6">
               About<span className="font-semibold text-purple-400"> Me</span>
             </h2>
